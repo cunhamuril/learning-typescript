@@ -1,8 +1,8 @@
 /**
- * Exemplo de tipagem de objetos em classes
+ * Tipagem de objetos em classes
  */
 
-// Geralmente por padrão nome de interfaces começar com I
+// Geralmente por padrão nome de interfaces deve começar com I
 interface IMailTo {
   name: string;
   email: string;
@@ -19,8 +19,14 @@ interface IMailMessage {
   attachment?: string[];
 }
 
+// DTO: Data Transfer Object
+interface IMessageDTO {
+  to: IMailTo;
+  message: IMailMessage;
+}
+
 class EmailService {
-  sendMail(to: IMailTo, message: IMailMessage) {
+  sendMail({ to, message }: IMessageDTO) {
     console.log(`Email enviado para ${to.name}: ${message.subject}`);
   }
 }
