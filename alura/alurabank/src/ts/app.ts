@@ -1,3 +1,5 @@
-const deal = new Deal(new Date(), 1, 100);
+const controller = new DealController();
 
-console.log(deal.volume);
+document
+  .querySelector(".form")
+  ?.addEventListener("submit", controller.add.bind(controller));
