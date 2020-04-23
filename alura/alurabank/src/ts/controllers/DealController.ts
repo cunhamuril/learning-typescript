@@ -2,6 +2,7 @@ class DealController {
   private _inputDate: HTMLInputElement;
   private _inputAmount: HTMLInputElement;
   private _inputValue: HTMLInputElement;
+  private _deals = new Deals();
 
   constructor() {
     // <HTMLInputElement>: Casting explícito: pegando tipo genérico e convertendo para um tipo específico
@@ -21,6 +22,15 @@ class DealController {
       +this._inputValue.value
     );
 
-    console.log(deal);
+    this._deals.add(deal);
+
+    this._deals.toArray().length = 0;
+
+    this._deals.toArray().forEach((deal) => {
+      console.log(deal.date);
+      console.log(deal.amount);
+      console.log(deal.volume);
+      console.log(deal.value);
+    });
   }
 }
