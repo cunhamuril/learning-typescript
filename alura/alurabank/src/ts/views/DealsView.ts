@@ -5,11 +5,11 @@ class DealsView {
     this._element = document.querySelector(selector);
   }
 
-  update(): void {
-    this._element.innerHTML = this.template();
+  update(model: Deals): void {
+    this._element.innerHTML = this.template(model);
   }
 
-  template(): string {
+  template(model: Deals): string {
     return `
       <table class="table table-hover table-bordered">
         <thead>
@@ -22,6 +22,21 @@ class DealsView {
         </thead>
 
         <tbody>
+          ${model
+            .toArray()
+            .map(
+              (deal) => `
+            <tr>
+              <td>${deal.date.getDate()}/${
+                deal.date.getMonth() + 1
+              }/${deal.date.getFullYear()}</td>
+              <td>${deal.amount}</td>
+              <td>${deal.value}</td>
+              <td>${deal.volume}</td>
+            <tr>
+          `
+            )
+            .join("")}
         </tbody>
 
         <tfoot>

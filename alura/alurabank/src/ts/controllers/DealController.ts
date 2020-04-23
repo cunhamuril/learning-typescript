@@ -10,7 +10,7 @@ class DealController {
     this._inputDate = <HTMLInputElement>document.querySelector("#data");
     this._inputAmount = <HTMLInputElement>document.querySelector("#quantidade");
     this._inputValue = <HTMLInputElement>document.querySelector("#valor");
-    this._dealsView.update();
+    this._dealsView.update(this._deals);
   }
 
   add(e: Event) {
@@ -26,13 +26,15 @@ class DealController {
 
     this._deals.add(deal);
 
-    this._deals.toArray().length = 0;
+    this._dealsView.update(this._deals);
 
-    this._deals.toArray().forEach((deal) => {
-      console.log(deal.date);
-      console.log(deal.amount);
-      console.log(deal.volume);
-      console.log(deal.value);
-    });
+    // this._deals.toArray().length = 0;
+
+    // this._deals.toArray().forEach((deal) => {
+    //   console.log(deal.date);
+    //   console.log(deal.amount);
+    //   console.log(deal.volume);
+    //   console.log(deal.value);
+    // });
   }
 }
