@@ -3,12 +3,14 @@ class DealController {
   private _inputAmount: HTMLInputElement;
   private _inputValue: HTMLInputElement;
   private _deals = new Deals();
+  private _dealsView = new DealsView("#dealsView");
 
   constructor() {
     // <HTMLInputElement>: Casting explícito: pegando tipo genérico e convertendo para um tipo específico
     this._inputDate = <HTMLInputElement>document.querySelector("#data");
     this._inputAmount = <HTMLInputElement>document.querySelector("#quantidade");
     this._inputValue = <HTMLInputElement>document.querySelector("#valor");
+    this._dealsView.update();
   }
 
   add(e: Event) {
