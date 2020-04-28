@@ -1,5 +1,5 @@
 // <T>: classe tipo genérico
-class View<T> {
+abstract class View<T> {
   /**
    * Propriedades declaradas com o modificador private não podem ser acessadas pelas classes filhas.
    * Podemos resolver esse erro de compilação relaxando um pouco o nível de acesso à propriedade,
@@ -15,7 +15,6 @@ class View<T> {
     this._element.innerHTML = this.template(model);
   }
 
-  template(model: T): string {
-    throw new Error("Você deve implementar o método template");
-  }
+  // Abstract method: só tem assinatura, não tem corpo. Só é utilizando por quem herdar
+  abstract template(model: T): string;
 }
