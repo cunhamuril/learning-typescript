@@ -4,6 +4,7 @@ class DealController {
   private _inputValue: HTMLInputElement;
   private _deals = new Deals();
   private _dealsView = new DealsView("#dealsView");
+  private _messageView = new MessageView("#messageView");
 
   constructor() {
     // <HTMLInputElement>: Casting explícito: pegando tipo genérico e convertendo para um tipo específico
@@ -28,13 +29,6 @@ class DealController {
 
     this._dealsView.update(this._deals);
 
-    // this._deals.toArray().length = 0;
-
-    // this._deals.toArray().forEach((deal) => {
-    //   console.log(deal.date);
-    //   console.log(deal.amount);
-    //   console.log(deal.volume);
-    //   console.log(deal.value);
-    // });
+    this._messageView.update("Negociação adicionada com sucesso!");
   }
 }
