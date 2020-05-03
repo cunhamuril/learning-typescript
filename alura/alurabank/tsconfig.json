@@ -3,7 +3,8 @@
     "target": "ES6", // Versão que será convertido
     "outDir": "src/js", // Diretório onde será salvo os arquivos JS
     "noEmitOnError": true, // Não converte se tiver erro
-    "noImplicitAny": true // Não ativar any de maneira implicita
+    "noImplicitAny": true, // Não ativar any de maneira implicita
+    "removeComments": true // Romover comentários dos códigos que irão para produção
   },
   "include": [
     "src/ts/**/*" // Arquivos que serão incluídos
