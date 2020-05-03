@@ -1,16 +1,16 @@
 class DealController {
-  private _inputDate: HTMLInputElement;
-  private _inputAmount: HTMLInputElement;
-  private _inputValue: HTMLInputElement;
+  private _inputDate: JQuery;
+  private _inputAmount: JQuery;
+  private _inputValue: JQuery;
   private _deals = new Deals();
   private _dealsView = new DealsView("#dealsView");
   private _messageView = new MessageView("#messageView");
 
   constructor() {
     // <HTMLInputElement>: Casting explícito: pegando tipo genérico e convertendo para um tipo específico
-    this._inputDate = <HTMLInputElement>document.querySelector("#data");
-    this._inputAmount = <HTMLInputElement>document.querySelector("#quantidade");
-    this._inputValue = <HTMLInputElement>document.querySelector("#valor");
+    this._inputDate = $("#data");
+    this._inputAmount = $("#quantidade");
+    this._inputValue = $("#valor");
     this._dealsView.update(this._deals);
   }
 
@@ -19,10 +19,10 @@ class DealController {
 
     const deal = new Deal(
       // O construtor de Date não entende uma string assim: "01-01-2001", precisa converter para "01,01,2001"
-      new Date(this._inputDate.value.replace(/-/g, ",")),
+      new Date(this._inputDate.val().replace(/-/g, ",")),
       // + na frente do atributo converte para tipo number
-      +this._inputAmount.value,
-      +this._inputValue.value
+      +this._inputAmount.val(),
+      +this._inputValue.val()
     );
 
     this._deals.add(deal);

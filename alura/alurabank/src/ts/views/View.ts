@@ -1,5 +1,3 @@
-declare var $: any;
-
 // <T>: classe tipo genérico
 abstract class View<T> {
   /**
@@ -8,7 +6,7 @@ abstract class View<T> {
    * utilizando o modificador protected em vez de private:
    */
   // protected _element: Element;
-  protected _element: any; // com jQuery
+  protected _element: JQuery; // com jQuery
 
   constructor(selector: string) {
     this._element = $(selector);

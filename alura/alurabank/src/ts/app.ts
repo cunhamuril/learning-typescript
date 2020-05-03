@@ -1,5 +1,7 @@
 const controller = new DealController();
 
-document
-  .querySelector(".form")
-  .addEventListener("submit", controller.add.bind(controller));
+$(".form").submit(controller.add.bind(controller));
+
+// document
+//   .querySelector(".form")
+//   .addEventListener("submit", controller.add.bind(controller));
