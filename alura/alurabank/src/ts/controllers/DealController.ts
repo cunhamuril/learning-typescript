@@ -3,8 +3,8 @@ class DealController {
   private _inputAmount: JQuery;
   private _inputValue: JQuery;
   private _deals = new Deals();
-  private _dealsView = new DealsView("#dealsView");
-  private _messageView = new MessageView("#messageView");
+  private _dealsView = new Views.DealsView("#dealsView");
+  private _messageView = new Views.MessageView("#messageView");
 
   constructor() {
     // <HTMLInputElement>: Casting explícito: pegando tipo genérico e convertendo para um tipo específico
